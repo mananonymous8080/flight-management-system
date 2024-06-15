@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="layout :: head"></head>
+<body>
+<nav th:replace="layout :: header"></nav>
+
+<div class="container" id="main-content">
+    <div class="row d-flex justify-content-center">
+        <form style="min-width: 300px;" action="#" th:action="@{/booking/book}" method="post">
+            <h5 class="text-center">Flight Booking Form</h5>
+            <!-- Hidden input field for flight ID -->
+            <input type="hidden" name="flightId" th:value="${flight.id}" />
+            <!-- Display Flight Details -->
+            <div class="form-group">
+                <label>Flight Name:</label>
+                <span th:text="${flight.name}"></span>
+            </div>
+            <div class="form-group">
+                <label>From:</label>
+                <span th:text="${flight.from}"></span>
+            </div>
+            <div class="form-group">
+                <label>Destiny:</label>
+                <span th:text="${flight.destiny}"></span>
+            </div>
+            <div class="form-group">
+                <label>Price:</label>
+                <span th:text="${flight.price}"></span>
+            </div>
+            <div class="form-group">
+                <label>Departure Date:</label>
+                <span th:text="${flight.departureOn}"></span>
+            </div>
+            <div class="form-group">
+                <label>Arrival Date:</label>
+                <span th:text="${flight.arrivalOn}"></span>
+            </div>
+
+            <!-- Passenger Name -->
+            <div class="form-group">
+                <label for="passengerName">Passenger Name</label>
+                <input id="passengerName" class="form-control" type="text" name="passengerName" required />
+            </div>
+
+            <!-- Passenger Age -->
+            <div class="form-group">
+                <label for="passengerAge">Passenger Age</label>
+                <input id="passengerAge" class="form-control" type="number" name="passengerAge" required />
+            </div>
+
+            <!-- Passenger Mobile -->
+            <div class="form-group">
+                <label for="passengerMobile">Passenger Mobile</label>
+                <input id="passengerMobile" class="form-control" type="text" name="passengerMobile" required />
+            </div>
+
+            <!-- Hidden input field for username -->
+            <input type="hidden" th:value="${username}" name="username" />
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-block btn-primary">
+                    <i class="fa fa-save"></i> Confirm Booking
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
